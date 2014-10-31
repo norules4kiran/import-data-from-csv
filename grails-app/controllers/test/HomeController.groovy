@@ -4,6 +4,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile
 
 class HomeController {
     static allowedMethods = [importContacts: "POST", update: "PUT", delete: "DELETE"]
+
+    def importService
     def index() {
 
     }
@@ -16,7 +18,7 @@ class HomeController {
 
 
         file.eachCsvLine { tokens ->
-            new Contact(name:tokens[0],phone:tokens[1]).save()
+            importService.addOrUpdate(new Contact(name:tokens[0],phone:tokens[1]))
         }
         file.delete()
         redirect(controller: "contact", action: "index")
@@ -24,7 +26,7 @@ class HomeController {
 
     def csv(){
         new File("/home/kiran/MyContacts.csv").eachCsvLine { tokens ->
-            new Contact(name:tokens[0],phone:tokens[1]).save()
+            importService.addOrUpdate(new Contact(name:tokens[0],phone:tokens[1]))
         }
     }
 }

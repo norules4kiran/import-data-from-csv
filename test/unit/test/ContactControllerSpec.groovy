@@ -11,7 +11,8 @@ class ContactControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["name"] = 'Kiran'
+        params["phone"] = '9886562462'
     }
 
     void "Test the index action returns the correct model"() {
@@ -57,6 +58,7 @@ class ContactControllerSpec extends Specification {
         controller.flash.message != null
         Contact.count() == 1
     }
+
 
     void "Test that the show action returns the correct model"() {
         when: "The show action is executed with a null domain"

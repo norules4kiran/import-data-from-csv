@@ -9,7 +9,8 @@ class Contact {
     static 	mapWith = "mongo"
 
     static constraints = {
-        name nullable: true
+        name nullable: false
+        name unique: true
         phone nullable: true
     }
 }
