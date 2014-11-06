@@ -45,6 +45,7 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+        mavenRepo "https://oss.sonatype.org/content/repositories/snapshots/"
     }
 
     dependencies {
@@ -53,6 +54,12 @@ grails.project.dependency.resolution = {
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
         compile "cglib:cglib:2.2"
+
+
+        compile "org.igniterealtime.smack:smack-java7:4.1.0-alpha4"
+        compile "org.apache.httpcomponents:httpclient:4.3.5"
+        compile "org.igniterealtime.smack:smack-tcp:4.1.0-alpha4"
+        compile "org.igniterealtime.smack:smack-extensions:4.1.0-alpha4"
     }
 
     plugins {
